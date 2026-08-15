@@ -1,12 +1,11 @@
 import { createAI, Difficulty, simulateGame } from './ai';
-import { createBoard, placeShipsRandomly, getRandomEmptyCell, Position } from './game';
+import { createBoard, placeShipsRandomly, Position } from './game';
 
 const GAMES_PER_DIFFICULTY = 200;
 
 function generateRandomOpponentShots(): Position[] {
   const board = createBoard();
   placeShipsRandomly(board);
-  const shots: Position[] = [];
   
   // Generate all possible shots in random order
   const allPositions: Position[] = [];

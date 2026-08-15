@@ -79,7 +79,7 @@ export function placeShip(board: Board, ship: { id: string; name: string; size: 
   const newBoard = { 
     ...board, 
     cells: board.cells.map(row => [...row]), 
-    ships: [...board.ships.map(s => ({ ...s, hits: [...s.hits] }))] 
+    ships: board.ships.map(s => ({ ...s, hits: [...s.hits] }))
   };
   
   // Mark cells as having ships
