@@ -100,11 +100,11 @@ export function placeShip(board: Board, ship: { id: string; name: string; size: 
 }
 
 export function placeShipsRandomly(board: Board): Board {
-  let newBoard = { 
+  const newBoard: Board = { 
     ...board, 
     cells: board.cells.map(row => [...row]), 
     ships: [] 
-  } as Board;
+  };
   
   for (const shipConfig of SHIPS) {
     let placed = false;
@@ -117,7 +117,9 @@ export function placeShipsRandomly(board: Board): Board {
       const col = Math.floor(Math.random() * board.width);
       
       if (canPlaceShip(newBoard, shipConfig, { row, col }, orientation)) {
-        newBoard = placeShip(newBoard, shipConfig, { row, col }, orientation);
+        const updatedBoard = placeShip(newBoard, shipConfig, { row, col }, orientation);
+        newBoard.cells = updatedBoard.cells;
+        newBoard.ships = updatedBoard.ships;
         placed = true;
       }
       attempts++;
