@@ -100,11 +100,11 @@ export function placeShip(board: Board, ship: { id: string; name: string; size: 
 }
 
 export function placeShipsRandomly(board: Board): Board {
-  let newBoard: Board = { 
+  let newBoard = { 
     ...board, 
     cells: board.cells.map(row => [...row]), 
     ships: [] 
-  };
+  } as Board;
   
   for (const shipConfig of SHIPS) {
     let placed = false;
