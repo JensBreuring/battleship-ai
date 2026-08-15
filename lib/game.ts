@@ -103,7 +103,7 @@ export function placeShipsRandomly(board: Board): Board {
   const newBoard: Board = { 
     ...board, 
     cells: board.cells.map(row => [...row]), 
-    ships: [] 
+    ships: [] as Ship[]
   };
   
   for (const shipConfig of SHIPS) {
