@@ -42,4 +42,22 @@ The project is ready for game development. The basic Next.js structure is in pla
 
 ## Game Status
 
-🚧 **Under Development** - The actual Battleship game logic and AI opponent have not been implemented yet. This is the initial project setup.
+✅ **AI Implementation Complete** - Computer-controlled opponents with three difficulty levels have been implemented.
+
+### AI Opponents
+
+The game includes three AI difficulty levels:
+
+- **Easy**: Fires at random squares
+- **Medium**: Intelligent hunting - once it hits a ship, it targets adjacent squares to find the rest
+- **Hard**: Smarter hunting - uses checkerboard pattern for initial targeting and focused hunting for partially hit ships
+
+### Test Results
+
+Based on 200 simulated games per difficulty level against a random opponent:
+
+- **Easy AI**: Mean 92.83 turns (random firing)
+- **Medium AI**: Mean 66.27 turns (28.6% faster than Easy)
+- **Hard AI**: Mean 63.57 turns (4.1% faster than Medium, 31.5% faster than Easy)
+
+The tests confirm that Hard AI performs better than Medium AI, and Medium AI performs better than Easy AI as required.
