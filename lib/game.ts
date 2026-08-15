@@ -39,7 +39,7 @@ export const SHIPS = [
 export function createBoard(width: number = BOARD_SIZE, height: number = BOARD_SIZE): Board {
   return {
     cells: Array(height).fill(null).map(() => Array(width).fill('empty')),
-    ships: [],
+    ships: [] as Ship[],
     width,
     height,
   };
@@ -76,7 +76,7 @@ export function getShipPositions(start: Position, size: number, orientation: Shi
 export function placeShip(board: Board, ship: { id: string; name: string; size: number }, position: Position, orientation: ShipOrientation): Board {
   const positions = getShipPositions(position, ship.size, orientation);
   
-  const newBoard = { 
+  const newBoard: Board = { 
     ...board, 
     cells: board.cells.map(row => [...row]), 
     ships: board.ships.map(s => ({ ...s, hits: [...s.hits] }))
@@ -144,7 +144,7 @@ export function fireAt(board: Board, position: Position): { board: Board; hit: b
     throw new Error('Position already fired upon');
   }
   
-  const newBoard = { ...board, cells: board.cells.map(row => [...row]), ships: board.ships.map(ship => ({ ...ship, hits: [...ship.hits] })) };
+  const newBoard: Board = { ...board, cells: board.cells.map(row => [...row]), ships: board.ships.map(ship => ({ ...ship, hits: [...ship.hits] })) };
   
   if (cell === 'ship') {
     newBoard.cells[position.row][position.col] = 'hit';
