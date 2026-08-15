@@ -100,9 +100,10 @@ export function placeShip(board: Board, ship: { id: string; name: string; size: 
 }
 
 export function placeShipsRandomly(board: Board): Board {
-  const newBoard: Board = { 
-    ...board, 
-    cells: board.cells.map(row => [...row]), 
+  const newBoard: Board = {
+    width: board.width,
+    height: board.height,
+    cells: board.cells.map(row => [...row]),
     ships: [] as Ship[]
   };
   
